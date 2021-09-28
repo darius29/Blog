@@ -1,26 +1,41 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
+import { Card } from "./components/Card";
+import styled from "styled-components";
+import img1 from "./Assets/images/img1.jpg";
+import img2 from "./Assets/images/img2.jpg";
+import img3 from "./Assets/images/img3.jpg";
 
-function App() {
+
+const CardContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1f2229;
+  overflow: hidden;
+`;
+
+const Separator = styled.span`
+  margin-left: 10px;
+  margin-right: 10px;
+`;
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Card component</h1>
+      <h2>props: title, date, and img</h2>
+      <CardContainer>
+        <Card title={"Hello world"} date={1} imgUrl={img1} />
+        <Separator />
+        <Card title={"My Card"} date={2} imgUrl={img2} />
+        <Separator />
+        <Card title={"Your card"} date={3} imgUrl={img3}/>
+        <Separator/>
+      
+      </CardContainer>
+
     </div>
   );
 }
-
-export default App;
