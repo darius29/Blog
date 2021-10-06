@@ -1,3 +1,4 @@
+import React from "react";
 import { CardType } from "../../Types";
 import {
   CardWrapper,
@@ -12,7 +13,10 @@ import {
 } from "./CardStyles";
 import Tilt from "react-parallax-tilt";
 
-export const Card = ({ title, date, imgUrl }: CardType) => {
+
+import { Link } from "react-router-dom";
+export const Card = ({ title, date, imgUrl, content, details, info, test }: CardType) => {
+  
   return (
     <Tilt>
       <CardWrapper>
@@ -20,24 +24,22 @@ export const Card = ({ title, date, imgUrl }: CardType) => {
         <CardTextWrapper>
           <CardTextDate>{date} days ago</CardTextDate>
           <CardTextTitle>{title}</CardTextTitle>
+          
           <CardTextBody>
-            Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae
-            temporibus omnis illum maxime quod deserunt eligendi dolor
+            {content}
           </CardTextBody>
         </CardTextWrapper>
         <CardStatWrapper>
-           {/* <CardStats>
-            <div>
-              1<sup>m</sup>
-            </div>
-            <div>read</div>
-          </CardStats> */}
+          
           <CardStats>
-            <LinkText href="#">website</LinkText>
+            <Link to="/article">{details}</Link>
           </CardStats>
           <CardStats>
-            <LinkText href="#">github</LinkText>
+            <LinkText>
+             <Link to="/info">{info}</Link>
+            </LinkText>
           </CardStats>
+
         </CardStatWrapper>
       </CardWrapper>
     </Tilt>

@@ -1,40 +1,37 @@
 import "./styles.css";
-import { Card } from "./components/Card";
-import styled from "styled-components";
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+
+import Home from "./components/pages/Home";
+import Article from "./components/pages/Article";
+import Info from "./components/pages/Info";
+
+
 import img1 from "./Assets/images/img1.jpg";
-import img2 from "./Assets/images/img2.jpg";
-import img3 from "./Assets/images/img3.jpg";
 
-
-const CardContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #1f2229;
-  overflow: hidden;
-`;
-
-const Separator = styled.span`
-  margin-left: 10px;
-  margin-right: 10px;
-`;
 
 export default function App() {
   return (
     <div className="App">
       <h1>Card component</h1>
-      <h2>props: title, date, and img</h2>
-      <CardContainer>
-        <Card title={"Hello world"} date={1} imgUrl={img1} />
-        <Separator />
-        <Card title={"My Card"} date={2} imgUrl={img2} />
-        <Separator />
-        <Card title={"Your card"} date={3} imgUrl={img3}/>
-        <Separator/>
+      <h2>props: title, date, and img, content</h2>
+    
+     
       
-      </CardContainer>
+      <Router>
+        <div>
+
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route  path="/article" component={Article}/>
+        {/* <Route  path="info" component={Info}/> */}
+          <Route path="/info">
+            <Info title={"Hello world"} date={1} imgUrl={img1}
+            content={"Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor, Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor,Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor,Lorem ipsum dolor sit amet consectetur, Ducimus, repudiandae temporibus omnis illum maxime quod deserunt eligendi dolor"} />
+          </Route>
+        </Switch>
+        </div>
+
+      </Router>
 
     </div>
   );
