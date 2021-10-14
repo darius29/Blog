@@ -15,7 +15,7 @@ import Tilt from "react-parallax-tilt";
 
 
 import { Link } from "react-router-dom";
-export const Card = ({ title, date, imgUrl, content, details, info, test }: CardType) => {
+export const Card = ({ title, date, imgUrl, content, details, edit, test }: CardType) => {
   
   return (
     <Tilt>
@@ -32,11 +32,11 @@ export const Card = ({ title, date, imgUrl, content, details, info, test }: Card
         <CardStatWrapper>
           
           <CardStats>
-            <Link to="/article">{details}</Link>
+            <Link to="/details">{details}</Link>
           </CardStats>
           <CardStats>
             <LinkText>
-             <Link to="/info">{info}</Link>
+             <Link to="/edit">{edit}</Link>
             </LinkText>
           </CardStats>
 

@@ -40,11 +40,11 @@ export const Product= ({ product}:any) =>{
         <CardStatWrapper>
           
           <CardStats>
-            <Link to="/article">{product.details}</Link>
+            <Link to="/details">{product.details}</Link>
           </CardStats>
           <CardStats>
             <LinkText>
-             <Link to="/info">{product.info}</Link>
+             <Link to="/edit">{product.edit}</Link>
             </LinkText>
           </CardStats>
         </CardStatWrapper>

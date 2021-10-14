@@ -10,7 +10,7 @@ export const data = [
       image: img1,
       date: "1 ",
       details: "details",
-      info: "info",
+      edit: "edit",
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ export const data = [
       image: img2,
       date: "2 ",
       details: "details",
-      info: "info",
+      edit: "edit",
     },
     {
       id: 3,
@@ -28,6 +28,6 @@ export const data = [
       image: img3,
       date: "3 ",
       details: "details",
-      info: "info",
+      edit: "edit",
     },
     ]

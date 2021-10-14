@@ -4,7 +4,7 @@ export type CardType = {
     imgUrl: string;
     content: string;
     details: string;
-    info: string;
+    edit: string;
     test: any;
     // color: string;
   };
