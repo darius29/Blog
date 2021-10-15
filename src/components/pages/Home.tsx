@@ -8,9 +8,9 @@ import img2 from "../../Assets/images/img2.jpg";
 import img3 from "../../Assets/images/img3.jpg";
 import { data } from "../../Data";
 import Product from './Product';
-import { CardPreview } from '../Card/CardPreview';
+
 import { CardForm } from '../Card/CardForm';
-import { CardList } from '../Card/CardList';
+
 
 const CardContainer = styled.div`
   width: 100vw;

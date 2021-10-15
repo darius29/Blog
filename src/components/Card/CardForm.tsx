@@ -49,15 +49,11 @@ export function CardForm({ onSave, onCancel, card}: any) {
     console.log(value);
   }
 
-  function vaildateForm(event:any){
-    let isValid=false;
+ 
 
-
-  }
-
-  function validateSentence(term:any) {
-    return ((/[^A-Za-z0-9 .'?!,@$#-_]/).test(term));
-    }
+  // function validateSentence(term:any) {
+  //   return ((/[^A-Za-z0-9 .'?!,@$#-_]/).test(term));
+  //   }
 
   
   return (
@@ -65,11 +61,11 @@ export function CardForm({ onSave, onCancel, card}: any) {
       <h4>{id ? 'Update Card' : 'Add Card'}</h4>
       <form onReset={clearForm} onSubmit={handleSubmit}>
 
-      <div>
-          <label htmlFor={`card_data_${id ? id : 'new'}`}>
+      <div className="img">
+          <label  htmlFor={`card_data_${id ? id : 'new'}`}>
             Img
           </label>
-          <textarea
+          <input
             id={`card_data_${id ? id : 'new'}`}
             value={img}
             onChange={handleImgChange}
@@ -78,11 +74,11 @@ export function CardForm({ onSave, onCancel, card}: any) {
         </div>
         <div>
           <label htmlFor={`card_term_${id ? id : 'new'}`}>Title</label>
-          <textarea
+          <input
             id={`card_term_${id ? id : 'new'}`}
             value={term}
             onChange={handleTermChange}
-          
+            pattern="(?![aA]\d{6}$).*"
             //pattern="[A-Za-z]{3}"
            // pattern= "new RegExp('([a-zA-Z]{3,30}\\s*)+')"
           //  rules={[
@@ -102,7 +98,7 @@ export function CardForm({ onSave, onCancel, card}: any) {
           <label htmlFor={`card_data_${id ? id : 'new'}`}>
             Date
           </label>
-          <textarea
+          <input
             id={`card_data_${id ? id : 'new'}`}
             value={data}
             onChange={handleDataChange}
@@ -113,7 +109,7 @@ export function CardForm({ onSave, onCancel, card}: any) {
           <label htmlFor={`card_definition_${id ? id : 'new'}`}>
             Content
           </label>
-          <textarea
+          <input
             id={`card_definition_${id ? id : 'new'}`}
             value={definition}
             onChange={handleDefChange}

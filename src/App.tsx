@@ -16,22 +16,24 @@ import {CardList} from './components/Card/CardList';
 
 
 export default function App() {
-  const [cards, setCards] = React.useState([])
+  const [cards, setCards] = React.useState<string[]>([])
   React.useEffect(() => {
     getCards().then(setCards)
   }, [])
+
+  function handleAdd(card:any) {
+    setCards(existing => [...existing, card])
+  }
+  
+  function handleUpdate(card:any) {
+    setCards((existing: any) => existing.map((c:any) => (c.id === card.id ? card : c)))
+  }
 
   function handleRemove(id:number) {
     setCards(existing => existing.filter((c:any) => c.id !== id))
   }
 
-  // function handleAdd(card:any) {
-  //   setCards((existing:any) => [...existing, card])
-  // }
 
-  function handleUpdate(card:any) {
-    setCards((existing: any) => existing.map((c:any) => (c.id === card.id ? card : c)))
-  }
 
   return (
     <div className="App">
@@ -53,7 +55,7 @@ export default function App() {
           <CardList
               path="/cards"
               cards={cards}
-              // onAdd={handleAdd}
+              onAdd={handleAdd}
               onUpdate={handleUpdate}
               onRemove={handleRemove}
               />

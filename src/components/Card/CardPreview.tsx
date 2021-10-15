@@ -2,6 +2,18 @@ import React from 'react'
 import { destroyCard } from '../services/cardService'
 import { CardForm } from './CardForm'
 
+import {
+  CardWrapper,
+  CardImage,
+  //CardTextWrapper,
+  CardTextDate,
+  CardTextTitle,
+  CardTextBody,
+ // LinkText
+} from "../Card/CardStyles";
+
+import img1 from "../../Assets/images/img1.jpg";
+
 export function CardPreview({ onRemove, onUpdate, ...card }:any) {
   const [isEditMode, setIsEditMode] = React.useState(false)
   function handleToggleEdit() {
@@ -29,8 +41,10 @@ function View({ id, term, definition, data, img, onEdit, onRemove }:any) {
   }
   return (
     <div className={`tile ${isFront ? '' : 'back'}`}>
-      <h4 className="cardTerm">{isFront ? term : definition}</h4>
-      <h4 className="cardTerm">{isFront ? data : img}</h4>
+      <CardWrapper >
+      <h4 className="cardTerm">{isFront ? <CardTextTitle>{term}</CardTextTitle> : <CardTextBody> {definition} </CardTextBody>}</h4>
+      <h4 className="cardTerm">{isFront ? <CardTextDate>{data} days ago</CardTextDate> : <CardImage background={img1} />}</h4>
+      </CardWrapper>
       <div className="cardButtons">
         <button type="button" className="tertiary" onClick={handleCardFlip}>
           {isFront ? 'show back' : 'show front'}
